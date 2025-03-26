@@ -27,19 +27,19 @@ tool_get_sentinel_incident_by_id = FunctionTool(
 )
 
 tool_get_human_readable_sentinel_incident_alerts = FunctionTool(
-    name="get_sentinel_incident_alerts",
+    name="get_human_readable_sentinel_incident_alerts",
     description="Retrieve the alerts associated with the Microsoft Sentinel incident in human readable output.",
     func=get_human_readable_incident_alerts,
 )
 
 tool_get_human_readable_sentinel_incident_entities = FunctionTool(
-    name="get_sentinel_incident_entities",
+    name="get_human_readable_sentinel_incident_entities",
     description="Retrieve the entities associated with the Microsoft Sentinel incident in human readable output.",
     func=get_human_readable_incident_entities,
 )
 
 tool_get_human_readable_sentinel_incident_by_id = FunctionTool(
-    name="get_sentinel_incident_by_id",
+    name="get_human_readable_sentinel_incident_by_id",
     description="Retrieve the Microsoft Sentinel incident with incident id.",
     func=get_human_readable_incident_by_id,
 )
