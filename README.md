@@ -1,20 +1,13 @@
 # Robocop: The Evolution of SOC Automation
 
-This repository contains the demo code for the webinar organized by SANS titled **"From Playbooks to Robocop: The Evolution of SOC Automation"**.
+This repository contains the demo code for the webinar organized by SANS titled [**"From Playbooks to Robocop: The Evolution of SOC Automation"**](https://www.sans.org/webcasts/from-playbooks-robocop-evolution-soc-automation/).
 
 ## Overview
 
-The webinar explores the journey of Security Operations Center (SOC) automation, highlighting the transition from traditional playbooks to advanced automation techniques. This repository provides the accompanying demo code to illustrate the concepts discussed.
-
-## Contents
-
-- **`/scripts`**: Automation scripts used in the demo.
-- **`/configs`**: Configuration files for the automation tools.
-- **`/examples`**: Example use cases demonstrating SOC automation.
+The landscape of Security Operations is changing rapidly, and automation is leading the charge. In the second episode of the “Purple Team Power Hour”, we’ll explore how security teams are moving beyond static, pre-built playbooks toward dynamic, AI-driven solutions that can adapt to evolving threats in real time. 
 
 ## Prerequisites
 
-- Python 3.8 or higher
 - Required dependencies listed in `requirements.txt`
 
 ## Setup
@@ -30,17 +23,20 @@ The webinar explores the journey of Security Operations Center (SOC) automation,
     pip install -r requirements.txt
     ```
 
+3. Copy .env file:
+    ```bash
+    cp .env_example .env
+    ```
+
+4. Set values in .env file
+
 ## Usage
 
 Run the demo scripts to explore the automation examples:
 ```bash
-python scripts/demo_script.py
+python 01_agent.py
 ```
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-For questions or feedback, please reach out to the webinar organizers or open an issue in this repository.
