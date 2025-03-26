@@ -1,0 +1,5 @@
+autogen-agentchat 
+autogen-ext[openai,azure]
+autogenstudio
+python-dotenv
+requests
