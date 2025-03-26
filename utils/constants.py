@@ -35,3 +35,6 @@ SENTINEL_BASE_URL = f"https://management.azure.com/subscriptions/{SUBSCRIPTION_I
 SENTINEL_ACCESS_TOKEN = None
 LAW_ACCESS_TOKEN = None
 ADVANCED_HUNTING_ACCESS_TOKEN = None
+
+XSOAR_URL = os.getenv("XSOAR_URL")
+XSOAR_API_KEY = os.getenv("XSOAR_API_KEY")
