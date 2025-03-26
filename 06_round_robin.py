@@ -20,7 +20,7 @@ soc_analyst_agent = AssistantAgent(
     name="soc_analyst",
     model_client=gpt_4o_client,
     system_message=(
-        "You should use tools to get incident, alert and entity data and do KQL queries."
+        "You should use tools to get incident, alert and entity data and create and execute KQL queries."
         "Return TERMINATE when you have concluded your analysis and all findings have been verified by executing KQL queries."
     )
 )
