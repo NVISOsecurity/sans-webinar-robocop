@@ -39,7 +39,7 @@ sentinel_info = AssistantAgent(
     description="You are a dedicated Microsoft Sentinel Incident Retrieval Agent. Your primary responsibility is to retrieve incidents, alerts, and related from Microsoft Sentinel.",
     system_message=(
         "Always handoff back to soc_analyst after retrieving incident, alert and entity data."
-        "Do now analyze the data. That is the responsibility of the soc_analyst agent."
+        "Do not analyze the data. That is the responsibility of the soc_analyst agent."
         "Do not define a close reason or close notes. That is the responsibility of the soc_analyst agent."                
     ),
 )
@@ -57,6 +57,7 @@ kql_sentinel_query = AssistantAgent(
         "Always handoff back to soc_analyst after reflecing on the data returned by executing the KQL query. "
         "Do not use KQL queries to get incident, alert and entity data. That is the responsibility of the sentinel_info agent."
     ),
+    reflect_on_tool_use=True
 )
 
 
