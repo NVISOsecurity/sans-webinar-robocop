@@ -1,3 +1,5 @@
+KQL Query Source: https://github.com/reprise99/Sentinel-Queries
+
 //Find new operations completed by your privileged Azure AD users not seen before
 
 //Data connector required for this query - Azure Active Directory - Audit Logs
@@ -4842,27 +4844,6 @@ EmailEvents
 | where FileName endswith ".xlsm" or FileName endswith ".xstm"
 | summarize Recipient=make_set(RecipientEmailAddress) by FileName, SenderMailFromAddress
 
-//Advanced Hunting query
-
-//Data connector required for this query - Advanced Hunting license
-
-EmailEvents
-| where EmailDirection == "Inbound"
-| project
-    Timestamp,
-    SenderMailFromAddress,
-    RecipientEmailAddress,
-    NetworkMessageId
-| join kind=inner (EmailAttachmentInfo) on NetworkMessageId
-| project
-    Timestamp,
-    SenderMailFromAddress,
-    RecipientEmailAddress,
-    FileName
-| where FileName endswith ".xlsm" or FileName endswith ".xstm"
-| summarize Recipient=make_set(RecipientEmailAddress) by FileName, SenderMailFromAddress
-//Summarize the total count of downloads from Office 365 for each of your guest domains
-
 //Data connector required for this query - Office 365
 
 OfficeActivity
@@ -5084,17 +5065,6 @@ EmailEvents
 | summarize Count=count()by DeliveryAction, bin(TimeGenerated, 1d)
 | render columnchart with (kind=unstacked, title="Email delivery actions over time")
 
-//Advanced Hunting query. Advanced hunting only retains 30 days data, so to show a similar visualization, we can slice the vents up into 6 hour blocks
-
-//Data connector required for this query - Advanced Hunting license
-
-EmailEvents
-| where Timestamp > ago (30d)
-| where EmailDirection == "Inbound"
-| summarize count()by DeliveryAction, bin(Timestamp, 6h)
-//Advanced hunting cannot visualize column charts as well as Sentinel so rendering as a timechart produces a better result
-| render timechart  
-//Visualize guests added vs removed from Teams per day over the last 30 days
 
 //Data connector required for this query - Office 365
 
@@ -5338,30 +5308,6 @@ EmailEvents
 | summarize RecipientCount=dcount(RecipientEmailAddress) by SenderFromAddress, Subject, bin(TimeGenerated, 10m)
 | where SenderFromAddress !in (knownbulkemail) and RecipientCount > threshold
 
-//Advanced Hunting query
-
-//Data connector required for this query - Advanced Hunting license
-
-let threshold = 500;
-//First create a list of sender addresses that have previously sent you bulk email, hopefully this will let us exclude corporate communications and newsletters etc
-let knownbulkemail=
-    EmailEvents
-    | where Timestamp > ago(30d) and Timestamp < ago (1d)
-    | project Timestamp, EmailDirection, DeliveryAction, RecipientEmailAddress, SenderFromAddress, Subject
-    | where EmailDirection == "Inbound"
-    | where DeliveryAction == "Delivered"
-    | summarize RecipientCount=dcount(RecipientEmailAddress) by SenderFromAddress, Subject, bin(Timestamp, 10m)
-    | where RecipientCount > threshold
-    | distinct SenderFromAddress;
-//Look in the last hour for any new senders that have sent over the threshold in a 10 minute period
-EmailEvents
-| where Timestamp > ago(1d)
-| project Timestamp, EmailDirection, DeliveryAction, RecipientEmailAddress, SenderFromAddress, Subject
-| where EmailDirection == "Inbound"
-| where DeliveryAction == "Delivered"
-| summarize RecipientCount=dcount(RecipientEmailAddress) by SenderFromAddress, Subject, bin(Timestamp, 10m)
-| where SenderFromAddress !in (knownbulkemail) and RecipientCount > threshold
-//Visualize how many files are being downloaded from your Office 365 tenant by guest accounts with trend
 
 //Data connector required for this query - Office 365
 
