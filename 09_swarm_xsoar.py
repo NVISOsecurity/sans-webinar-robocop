@@ -52,13 +52,12 @@ xsoar_info = AssistantAgent(
     model_client=gpt_4o_mini_client,
     handoffs=["soc_analyst"],
     tools=[tool_get_xsoar_incident_by_sentinel_incident_number],
-    description="You are a dedicated Cortex XSOAR Incident Retrieval Agent. Your primary responsibility is to retrieve incident from XSOAR using the Sentinel incident number (not the ID which is a GUID).",
+    description="You are a dedicated Cortex XSOAR Incident Retrieval Agent. Your primary responsibility is to retrieve incidents from XSOAR using the Sentinel incident number (not the ID which is a GUID).",
     system_message=(
         "Always handoff back to soc_analyst after retrieving the incident from XSOAR"
         "Do now analyze the data. That is the responsibility of the soc_analyst agent."
         "Do not define a close reason or close notes. That is the responsibility of the soc_analyst agent."                
     ),
-    reflect_on_tool_use=True
 )
 
 kql_sentinel_query = AssistantAgent(
