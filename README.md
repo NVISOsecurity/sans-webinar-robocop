@@ -1,6 +1,6 @@
 # Robocop: The Evolution of SOC Automation
 
-This repository contains the demo code for the webcast organized by SANS titled [**"From Playbooks to Robocop: The Evolution of SOC Automation"**](https://www.sans.org/webcasts/from-playbooks-robocop-evolution-soc-automation/).
+This repository contains the demo code build on top of [Autogen](https://microsoft.github.io/autogen/stable/) for the webcast organized by SANS titled [**"From Playbooks to Robocop: The Evolution of SOC Automation"**](https://www.sans.org/webcasts/from-playbooks-robocop-evolution-soc-automation/).
 
 ![SANS Webcast](images/SANSWebinar.jpg "Title")
 
@@ -11,7 +11,7 @@ The landscape of Security Operations is changing rapidly, and automation is lead
 
 ## Prerequisites
 
-- Azure OpenAI instance 
+- [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview)
 
 ## Getting Started
 
