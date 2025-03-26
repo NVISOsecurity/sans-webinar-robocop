@@ -1,16 +1,19 @@
 # Robocop: The Evolution of SOC Automation
 
-This repository contains the demo code for the webinar organized by SANS titled [**"From Playbooks to Robocop: The Evolution of SOC Automation"**](https://www.sans.org/webcasts/from-playbooks-robocop-evolution-soc-automation/).
+This repository contains the demo code for the webcast organized by SANS titled [**"From Playbooks to Robocop: The Evolution of SOC Automation"**](https://www.sans.org/webcasts/from-playbooks-robocop-evolution-soc-automation/).
+
+![SANS Webcast](images/SANSWebinar.jpg "Title")
 
 ## Overview
 
 The landscape of Security Operations is changing rapidly, and automation is leading the charge. In the second episode of the “Purple Team Power Hour”, we’ll explore how security teams are moving beyond static, pre-built playbooks toward dynamic, AI-driven solutions that can adapt to evolving threats in real time. 
 
+
 ## Prerequisites
 
-- Required dependencies listed in `requirements.txt`
+- Azure OpenAI instance 
 
-## Setup
+## Getting Started
 
 1. Clone the repository:
     ```bash
@@ -28,7 +31,7 @@ The landscape of Security Operations is changing rapidly, and automation is lead
     cp .env_example .env
     ```
 
-4. Set values in .env file
+4. Set values in `.env` file
 
 ## Usage
 
