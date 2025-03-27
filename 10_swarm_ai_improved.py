@@ -28,7 +28,7 @@ soc_analyst = AssistantAgent(
     handoffs=["sentinel_info", "xsoar_info", "kql_sentinel_query"],
     system_message=(
         "Your goal is to coordinate an end-to-end analysis of a Microsoft Sentinel incident. "
-        "Use tools and agents only as needed. Do not write KQL queries yourself—use the kql_sentinel_query agent. "
+        "Use tools and agents only as needed. Do not write KQL queries yourself, use the kql_sentinel_query agent. "
         "Always retrieve the Sentinel incident first (via sentinel_info), then retrieve the XSOAR incident using the sentinel incident number. "
         "Use the KQL agent for any log data validation. "
         "Once your investigation is complete, return TERMINATE along with a clear close reason and detailed explanation."
