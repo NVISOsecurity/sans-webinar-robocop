@@ -77,7 +77,10 @@ kql_sentinel_query = AssistantAgent(
         "You support investigations by fetching and analyzing log data to verify or refute hypotheses about incidents."
     ),
     name="kql_sentinel_query",
-    tools=[tool_execute_kql_sentinel_log_analytics_workspace, tool_get_sentinel_tables_schema],
+    tools=[
+        tool_execute_kql_sentinel_log_analytics_workspace, 
+        tool_get_sentinel_tables_schema
+    ],
     handoffs=["soc_analyst"],
     model_client=gpt_4o_client,
     system_message=(
