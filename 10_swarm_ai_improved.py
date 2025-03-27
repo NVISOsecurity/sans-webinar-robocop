@@ -39,7 +39,11 @@ sentinel_info = AssistantAgent(
     name="sentinel_info",
     model_client=gpt_4o_mini_client,
     handoffs=["soc_analyst"],
-    tools=[tool_get_human_readable_sentinel_incident_entities, tool_get_human_readable_sentinel_incident_alerts, tool_get_human_readable_sentinel_incident_by_id],
+    tools=[
+        tool_get_human_readable_sentinel_incident_entities, 
+        tool_get_human_readable_sentinel_incident_alerts, 
+        tool_get_human_readable_sentinel_incident_by_id
+    ],
     description=(
         "You are a Microsoft Sentinel incident data retrieval agent. "
         "Your role is to fetch the full incident, its related alerts, and involved entities from Microsoft Sentinel."
@@ -92,7 +96,7 @@ team = Swarm(
     participants=[soc_analyst, sentinel_info, kql_sentinel_query, xsoar_info], termination_condition=termination
 )
 async def main():
-    sentinel_incident_id = "148583a3-970f-4d1f-84dc-4da50b027695"
+    sentinel_incident_id = "e4075c44-21c3-404e-a6a7-33ff041092a3"
 
     task = (
         f"Retrieve the Microsoft Sentinel incident with ID '{sentinel_incident_id}', "
