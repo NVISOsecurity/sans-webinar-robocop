@@ -27,3 +27,5 @@ def get_xsoar_incident_investigation_details(sentinel_incident_number: int):
         incident = data[0]
     
         return incident.get('CustomFields', {}).get('extendeddetails')
+    
+    return None
