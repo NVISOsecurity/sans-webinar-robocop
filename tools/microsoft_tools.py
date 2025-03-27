@@ -22,7 +22,7 @@ tool_get_sentinel_incident_entities = FunctionTool(
 
 tool_get_sentinel_incident_by_id = FunctionTool(
     name="get_sentinel_incident_by_id",
-    description="Retrieve the Microsoft Sentinel incident with incident id in human readable output.",
+    description="Retrieve the Microsoft Sentinel incident with incident id.",
     func=get_incident_by_id,
 )
 
