@@ -109,7 +109,6 @@ async def main():
         "Provide a detailed explanation in the close notes justifying your assessment."
     )
 
-    
     await Console(team.run_stream(task=task))
 
 
