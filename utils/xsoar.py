@@ -19,7 +19,7 @@ def get_xsoar_incident(sentinel_incident_number: int):
         raise Exception(f"Failed to retrieve XSOAR incident: {response.status_code} - {response.text}")
 
 def get_xsoar_incident_investigation_details(sentinel_incident_number: int):
-    """ Retrieve the investigation details the Microsoft Sentinel incident from Cortex XSOAR with a Microsoft Sentinel incident number. """
+    """ Retrieve the investigation details of the Microsoft Sentinel incident from Cortex XSOAR with a Microsoft Sentinel incident number. """
     response = get_xsoar_incident(sentinel_incident_number)
 
     data = response.get('data')
